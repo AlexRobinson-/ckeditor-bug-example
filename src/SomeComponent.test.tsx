@@ -15,6 +15,10 @@ global.window.ResizeObserver = class ResizeObserver {
   }
 }
 
+;['InputEvent', 'KeyboardEvent'].forEach(key => {
+  global.window[key].prototype.getTargetRanges = () => []
+})
+
 it('renders', async () => {
   render(<SomeComponent value="this is some content" />)
 
